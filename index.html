@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CTRLZone | Best Samsung Phone Prices</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav id="nav">
+    <div class="navTop">
+      <div class="navItem">
+        <img src="./img/Contact/ctrlzone title.png" alt="" style="height:70px; width:auto;">
+      </div>
+      <div class="navItem" style="display: flex; align-items: center; gap: 18px;">
+        <button id="cartBtn" style="background: none; border: none; cursor: pointer; position: relative;">
+          <img src="./img/Icon/cart.png" alt="Cart" width="32" height="32">
+          <span id="cartCount" style="position: absolute; top: -6px; right: -8px; background: #ff3131; color: #fff; border-radius: 50%; padding: 2px 7px; font-size: 0.9em;">0</span>
+        </button>
+        <span class="limitedoffer" onclick="location.href='login.html';" style="margin-left:8px;">Admin</span>
+      </div>
+    </div>
+    <div class="navBottom">
+      <h3 class="menuItem">S25 Ultra</h3>
+      <h3 class="menuItem">S24 Ultra</h3>
+      <h3 class="menuItem">Z Flip 7</h3>
+      <h3 class="menuItem">Z Fold 7</h3>
+      <h3 class="menuItem">A16 5G</h3>
+    </div>
+  </nav>
+
+  <!-- Picture-Only Wide Slider Section (Place this ABOVE the .slider section) -->
+  <div class="wide-slider" id="wideSlider">
+    <div class="wide-slider-wrapper">
+      <img src="./img/slider/1.png" alt="Samsung Event" class="wide-slide active">
+      <img src="./img/slider/2.png" alt="Galaxy Z Series" class="wide-slide">
+      <img src="./img/slider/3.png" alt="Galaxy S Series" class="wide-slide">
+    </div>
+  </div>
+
+  <!-- Phone Showcase Section -->
+  <div class="slider">
+    <div class="sliderWrapper"></div>
+  </div>
+
+  <!-- Samsung Promo Section (update to Z Flip 7) -->
+  <div class="samsung-promo">
+    <div class="samsung-promo-bg"></div>
+    <div class="samsung-promo-content">
+      <div class="samsung-promo-text">
+        <h2 class="samsung-promo-title">Galaxy Z Flip 7</h2>
+        <p class="samsung-promo-desc">
+          The future of foldables is here.<br>
+          Meet the new Galaxy Z Flip 7—style, power, and innovation in your pocket.
+        </p>
+        <a href="#samsung-features"><button class="samsung-promo-btn">Learn More</button></a>
+      </div>
+      <div class="samsung-promo-img">
+        <img src="img/Product/5.png" alt="Galaxy Z Flip 7" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Backdrop Section (insert this new section here) -->
+  <div class="featured-backdrop-section">
+    <img src="./img/backdrop.png" alt="" class="featured-backdrop-img">
+  </div>
+
+  <!-- Samsung Features Section (update to Z Flip 7) -->
+  <section class="samsung-features" id="samsung-features">
+    <div class="samsung-features-bg"></div>
+    <div class="samsung-features-content">
+      <div class="samsung-features-title">
+        <h2>Why Galaxy Z Flip 7?</h2>
+        <p>Discover the unique features and flexibility of the new Galaxy Z Flip 7.</p>
+      </div>
+      <div class="samsung-features-grid">
+        <div class="samsung-feature-card">
+          <div class="samsung-feature-imgbox">
+            <img src="./img/Feature/1.png" alt="Flex Mode" class="samsung-feature-icon">
+          </div>
+          <h3>Flex Mode</h3>
+          <p>Enjoy hands-free selfies, video calls, and more with the iconic folding design.</p>
+        </div>
+        <div class="samsung-feature-card">
+          <div class="samsung-feature-imgbox">
+            <img src="./img/Feature/2.png" alt="Compact Design" class="samsung-feature-icon">
+          </div>
+          <h3>Ultra Compact</h3>
+          <p>Fits perfectly in your pocket—unfolds to a full-size smartphone when you need it.</p>
+        </div>
+        <div class="samsung-feature-card">
+          <div class="samsung-feature-imgbox">
+            <img src="./img/Feature/3.png" alt="Cover Display" class="samsung-feature-icon">
+          </div>
+          <h3>Smart Cover Display</h3>
+          <p>Check notifications, take selfies, and control music—all without opening your phone.</p>
+        </div>
+        <div class="samsung-feature-card">
+          <div class="samsung-feature-imgbox">
+            <img src="./img/Feature/4.png" alt="Camera" class="samsung-feature-icon">
+          </div>
+          <h3>Pro-Grade Camera</h3>
+          <p>Capture stunning photos and videos from any angle, even when folded.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="product" id="product">
+    <img src="img/Product/1.png" alt="" class="productImg">
+    <div class="productDetails">
+      <h1 class="productTitle">S25 Ultra</h1>
+      <h2 class="productPrice">RM5299.99</h2>
+      <p class="productDesc">Samsung's premium smartphone that offers cutting-edge technology and features.</p>
+      <div class="colors"></div>
+      <div class="sizes">
+        <div class="size">256 GB</div>
+        <div class="size">512 GB</div>
+        <div class="size">1 TB</div>
+      </div>
+      <div class="addToCartSection">
+        <label for="productQty" class="cartLabel">Quantity:</label>
+        <input type="number" id="productQty" class="cartQtyInput" value="1" min="1" max="10">
+        <button class="productButton" id="addToCartBtn">
+          <img src="img/Icon/cart.png" alt="Cart" style="height:20px;vertical-align:middle;margin-right:8px;">
+          ADD TO CART
+        </button>
+        <div id="cartFeedback" class="cartFeedback"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Move the comparison table section ABOVE the features section -->
+
+  <section class="comparison-section">
+    <h2 class="comparison-title">Information about Phones</h2>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Size (Main Display)</th>
+            <th>Resolution (Main Display)</th>
+            <th>Technology (Main Display)</th>
+            <th>Rear Camera - Resolution</th>
+            <th>Rear Camera - F Number</th>
+            <th class="expandable-col">Video Recording Resolution</th>
+            <th class="expandable-col">Battery Capacity (mAh, Typical)</th>
+            <th class="expandable-col">CPU Speed</th>
+            <th class="expandable-col">CPU Type</th>
+            <th class="expandable-col">Memory (GB)</th>
+            <th class="expandable-col">Storage (GB)</th>
+            <th class="expandable-col">Dimension (HxWxD, mm)</th>
+            <th class="expandable-col">Weight (g)</th>
+            <th class="expandable-col">Number of SIM</th>
+            <th class="expandable-col">Infrared Port</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>S25 Ultra</td>
+            <td>6.8"</td>
+            <td>3200 x 1440</td>
+            <td>Dynamic AMOLED 2X</td>
+            <td>200MP + 12MP + 10MP + 10MP</td>
+            <td>f/1.7, f/2.2, f/2.4, f/4.9</td>
+            <td class="expandable">8K@30fps, 4K@60fps</td>
+            <td class="expandable">5000</td>
+            <td class="expandable">3.36GHz, 2.8GHz, 2.0GHz</td>
+            <td class="expandable">Octa-core</td>
+            <td class="expandable">12</td>
+            <td class="expandable">256/512/1024</td>
+            <td class="expandable">163.4 x 78.1 x 8.9</td>
+            <td class="expandable">233</td>
+            <td class="expandable">Dual SIM</td>
+            <td class="expandable">No</td>
+          </tr>
+          <tr>
+            <td>S24 Ultra</td>
+            <td>6.8"</td>
+            <td>3088 x 1440</td>
+            <td>Dynamic AMOLED 2X</td>
+            <td>200MP + 12MP + 10MP + 10MP</td>
+            <td>f/1.7, f/2.2, f/2.4, f/4.9</td>
+            <td class="expandable">8K@24fps, 4K@60fps</td>
+            <td class="expandable">5000</td>
+            <td class="expandable">3.36GHz, 2.8GHz, 2.0GHz</td>
+            <td class="expandable">Octa-core</td>
+            <td class="expandable">12</td>
+            <td class="expandable">256/512/1024</td>
+            <td class="expandable">163.4 x 78.1 x 8.9</td>
+            <td class="expandable">233</td>
+            <td class="expandable">Dual SIM</td>
+            <td class="expandable">No</td>
+          </tr>
+          <tr>
+            <td>Z Flip 7</td>
+            <td>6.7"</td>
+            <td>2640 x 1080</td>
+            <td>Dynamic AMOLED 2X</td>
+            <td>12MP + 12MP</td>
+            <td>f/1.8, f/2.2</td>
+            <td class="expandable">4K@60fps</td>
+            <td class="expandable">3700</td>
+            <td class="expandable">3.36GHz, 2.8GHz, 2.0GHz</td>
+            <td class="expandable">Octa-core</td>
+            <td class="expandable">8</td>
+            <td class="expandable">256/512</td>
+            <td class="expandable">165.2 x 71.9 x 6.9</td>
+            <td class="expandable">187</td>
+            <td class="expandable">Dual SIM</td>
+            <td class="expandable">No</td>
+          </tr>
+          <tr>
+            <td>Z Fold 7</td>
+            <td>7.6"</td>
+            <td>2176 x 1812</td>
+            <td>Dynamic AMOLED 2X</td>
+            <td>50MP + 12MP + 10MP</td>
+            <td>f/1.8, f/2.2, f/2.4</td>
+            <td class="expandable">8K@24fps, 4K@60fps</td>
+            <td class="expandable">4400</td>
+            <td class="expandable">3.36GHz, 2.8GHz, 2.0GHz</td>
+            <td class="expandable">Octa-core</td>
+            <td class="expandable">12</td>
+            <td class="expandable">256/512/1024</td>
+            <td class="expandable">154.9 x 129.9 x 6.1</td>
+            <td class="expandable">253</td>
+            <td class="expandable">Dual SIM</td>
+            <td class="expandable">No</td>
+          </tr>
+          <tr>
+            <td>A16 5G</td>
+            <td>6.6"</td>
+            <td>2408 x 1080</td>
+            <td>PLS LCD</td>
+            <td>50MP + 2MP + 2MP</td>
+            <td>f/1.8, f/2.4, f/2.4</td>
+            <td class="expandable">FHD@30fps</td>
+            <td class="expandable">5000</td>
+            <td class="expandable">2.2GHz, 2.0GHz</td>
+            <td class="expandable">Octa-core</td>
+            <td class="expandable">8</td>
+            <td class="expandable">128/256</td>
+            <td class="expandable">167.7 x 78.0 x 9.1</td>
+            <td class="expandable">202</td>
+            <td class="expandable">Dual SIM</td>
+            <td class="expandable">No</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="see-more-btn" onclick="toggleComparisonDetails(this)">See More</button>
+    </div>
+  </section>
+
+  <div class="features">
+    <div class="feature">
+      <img src="img/Icon/shipping.png" alt="" class="featureIcon">
+      <span class="featureTitle">WORLDWIDE SHIPPING</span>
+      <span class="featureDesc">for all orders</span>
+    </div>
+    <div class="feature">
+      <img class="featureIcon" src="img/Icon/return.png" alt="">
+      <span class="featureTitle">RETURNS & REFUNDS</span>
+      <span class="featureDesc">for all orders</span>
+    </div>
+    <div class="feature">
+      <img class="featureIcon" src="img/Icon/gift.png" alt="">
+      <span class="featureTitle">PROMO CODES</span>
+      <span class="featureDesc">Get discounts for special occasions</span>
+    </div>
+    <div class="feature">
+      <img class="featureIcon" src="img/Icon/contact.png" alt="">
+      <span class="featureTitle">CONTACT US</span>
+      <span class="featureDesc">for any inquiries</span>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.3); z-index:999; align-items:center; justify-content:center;">
+    <div style="background:#fff; border-radius:18px; padding:32px 24px; min-width:320px; max-width:90vw; box-shadow:0 2px 24px #e3e8f0; position:relative;">
+      <h2 style="color:#1428a0; margin-top:0;">Your Cart</h2>
+      <ul id="cartItems" style="list-style:none; padding:0; margin:0 0 18px 0;"></ul>
+      <div class="cart-actions">
+        <button class="cart-checkout-btn" onclick="openPaymentModal()">Checkout &amp; Pay</button>
+      </div>
+      <button onclick="closeCart()" style="background:#ff3131; color:#fff; border:none; border-radius:8px; padding:8px 18px; font-weight:700; cursor:pointer;">Close</button>
+    </div>
+  </div>
+
+  <!-- Customer Reviews Section -->
+  <div class="gallery reviews">
+    <div class="reviewsContainer">
+      <h2 class="reviewsTitle">What Our Customers Say</h2>
+      <div class="reviewsGrid">
+        <div class="reviewCard">
+          <div class="reviewStars">★★★★★</div>
+          <p class="reviewText">
+            "Super fast delivery and the S25 Ultra is amazing! Will definitely shop here again."
+          </p>
+          <div class="reviewAuthor">– Aiman R.</div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewStars">★★★★★</div>
+          <p class="reviewText">
+            "Great customer service, answered all my questions. The phone arrived in perfect condition."
+          </p>
+          <div class="reviewAuthor">– Siti N.</div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewStars">★★★★★</div>
+          <p class="reviewText">
+            "Best prices for Samsung phones online. Highly recommended for anyone looking for a new device!"
+          </p>
+          <div class="reviewAuthor">– Daniel L.</div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewStars">★★★★★</div>
+          <p class="reviewText">
+            "Easy checkout and fast shipping. Love my new Galaxy Z Flip 7!"
+          </p>
+          <div class="reviewAuthor">– Nurul A.</div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewStars">★★★★★</div>
+          <p class="reviewText">
+            "Received my order within 2 days. Everything was original and sealed. Trusted store!"
+          </p>
+          <div class="reviewAuthor">– Hafiz M.</div>
+        </div>
+        <div class="reviewCard">
+          <div class="reviewStars">★★★★★</div>
+          <p class="reviewText">
+             "The A16 5G is a great budget phone. Excellent performance for the price!"
+          </p>
+          <div class="reviewAuthor">– Amir S.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Code Redemption Section -->
+  <section class="redeem-section">
+    <div class="redeem-container">
+      <h2 class="redeem-title">Redeem Your Promo Code</h2>
+      <p class="redeem-desc">Enter your promo or gift code below to unlock exclusive discounts or offers!</p>
+      <form class="redeem-form" onsubmit="event.preventDefault(); alert('Code redeemed! If valid, your discount will be applied.');">
+        <input type="text" class="redeem-input" placeholder="Enter your code" required>
+        <button type="submit" class="redeem-btn">Redeem</button>
+      </form>
+      <div class="redeem-info">* Only one code can be used per order. Codes are case-sensitive.</div>
+    </div>
+  </section>
+
+  <!-- New Season -->
+  <div class="newSeason">
+    <div class="newSeasonItem newSeasonItem--center" style="flex: 1 1 100%; max-width: 100%;">
+      <h3 class="newSeasonSubtitle">Discover What's Next</h3>
+      <h1 class="newSeasonTitle">More Products<br>Coming Soon</h1>
+      <p class="newSeasonDesc">
+        Stay tuned for the latest Samsung releases and exclusive offers.<br>
+        Subscribe to our newsletter and be the first to know!
+      </p>
+      <a href="#nav"><button class="newSeasonButton">Shop Now</button></a>
+      <form class="newSeasonSubscribe" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+        <input type="email" class="newSeasonInput" placeholder="Enter your email" required>
+        <button type="submit" class="newSeasonButton newSeasonButton--subscribe">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is the warranty for Samsung phones purchased here?
+            <span class="faq-arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            All Samsung phones purchased from CTRLZone come with an official Samsung Malaysia warranty. Please refer to the product page for specific warranty periods.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long does delivery take?
+            <span class="faq-arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Orders are processed within 24 hours and typically delivered within 1-3 working days for West Malaysia and 3-5 working days for East Malaysia.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I return or exchange my phone if I change my mind?
+            <span class="faq-arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            Yes, you can return or exchange your phone within 7 days of receiving it, provided it is unopened and in original condition. Please see our Returns & Refunds policy for details.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footerLeft">
+      <div class="footerMenu">
+        <h3 class="fMenuTitle">About Us</h3>
+        <ul class="fList">
+          <li class="fListItem">Company</li>
+          <li class="fListItem">Contact</li>
+          <li class="fListItem">Careers</li>
+          <li class="fListItem">Affiliates</li>
+          <li class="fListItem">Stores</li>
+        </ul>
+      </div>
+      <div class="footerMenu">
+        <h3 class="fMenuTitle">Useful Links</h3>
+        <ul class="fList">
+          <li class="fListItem">Support</li>
+          <li class="fListItem">Refunds</li>
+          <li class="fListItem">FAQ</li>
+          <li class="fListItem">Feedback</li>
+          <li class="fListItem">Stories</li>
+        </ul>
+      </div>
+      <div class="footerMenu">
+        <h3 class="fMenuTitle">Products</h3>
+        <ul class="fList">
+          <li class="fListItem">S25 Ultra</li>
+          <li class="fListItem">S24 Ultra</li>
+          <li class="fListItem">Z Flip 7</li>
+          <li class="fListItem">Z Fold 7</li>
+          <li class="fListItem">A16 5G</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footerRight">
+      <div class="footerRightMenu">
+        <h1 class="footerTitle">Subscribe to our channel</h1>
+        <div class="footerMail">
+          <input type="text" placeholder="youremail@email.com" class="fInput">
+          <button class="fButton">Join!</button>
+        </div>
+      </div>
+      <div class="footerRightMenu">
+        <h1 class="footerTitle">Follow Us</h1>
+        <div class="fIcons">
+          <img src="img/Contact/facebook.png" alt="" class="fIcon">
+          <img src="img/Contact/instagram.png" alt="" class="fIcon">
+          <img src="img/Contact/twitter.png" alt="" class="fIcon">
+          <img src="img/Contact/whatsapp.png" alt="" class="fIcon">
+        </div>
+      </div>
+      <div class="footerRightMenu">
+        <span class="copyright">© CTRLZone. All rights reserved. 2025.</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="app.js"></script>
+  <!-- Add this script just before </body> to scroll to slider on page load -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.slider').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+  <!-- Payment Modal (place at end of <body>) -->
+<div class="payment" id="paymentModal">
+  <span class="close" onclick="closePaymentModal()">&times;</span>
+  <h2 class="paymentTitle">Order Summary & Payment</h2>
+  <div id="paymentCartList" class="paymentCartList"></div>
+  <div class="paymentTotal" id="paymentTotal"></div>
+  <form id="paymentForm" class="paymentForm" onsubmit="event.preventDefault(); submitPayment();">
+    <label for="payName">Name</label>
+    <input type="text" id="payName" class="paymentInput" required>
+    <label for="payPhone">Phone Number</label>
+    <input type="tel" id="payPhone" class="paymentInput" required>
+    <label for="payAddress">Address</label>
+    <input type="text" id="payAddress" class="paymentInput" required>
+    <label class="paymentCardLabel">Card Payments</label>
+    <div class="paymentCardIcons">
+      <img src="./img/Contact/visa.png" alt="Visa" class="paymentCardIcon">
+      <img src="./img/Contact/master.png" alt="Mastercard" class="paymentCardIcon">
+    </div>
+    <label for="payCard">Credit Card Number</label>
+    <input type="text" id="payCard" class="paymentInput" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
+    <div class="paymentFormRow">
+      <div>
+        <label for="payMonth">Expiry Month</label>
+        <select id="payMonth" class="paymentSelect" required>
+          <option value="">MM</option>
+          <option value="01">01</option>
+          <option value="02">02</option>
+          <option value="03">03</option>
+          <option value="04">04</option>
+          <option value="05">05</option>
+          <option value="06">06</option>
+          <option value="07">07</option>
+          <option value="08">08</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+      <div>
+        <label for="payYear">Expiry Year</label>
+        <select id="payYear" class="paymentSelect" required>
+          <option value="">YY</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+          <option value="2027">2027</option>
+          <option value="2028">2028</option>
+          <option value="2029">2029</option>
+          <option value="2030">2030</option>
+        </select>
+      </div>
+      <div>
+        <label for="payCVV">CVV</label>
+        <input type="text" id="payCVV" class="paymentInput" maxlength="4" placeholder="CVV" required>
+      </div>
+    </div>
+    <button type="submit" class="paymentButton">Pay Now</button>
+  </form>
+</div>
+
+<!-- Place this just before your payment modal in index.html -->
+<div class="payment-blur-bg" id="paymentBlurBg"></div>
+
+ 
+</body>
+</html>

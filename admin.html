@@ -1,0 +1,97 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Orders | CTRLZone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(120deg, #e3e8f0 0%, #fff 100%);
+      font-family: 'Poppins', Arial, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .admin-orders-box {
+      max-width: 900px;
+      margin: 48px auto;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 2px 24px #0ff1ce33;
+      padding: 40px 36px 32px 36px;
+      position: relative;
+    }
+    .admin-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .admin-logo {
+      width: 120px;
+      margin-right: 18px;
+    }
+    .logout-btn {
+      background: #ff3131;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 24px;
+      font-weight: 700;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 2px 12px #ff313122;
+      transition: background 0.2s;
+    }
+    .logout-btn:hover {
+      background: #1428a0;
+    }
+    h2 {
+      color: #1428a0;
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+    }
+    .orders-list {
+      background: #f4f7fa;
+      border-radius: 14px;
+      padding: 18px;
+      font-size: 1.08em;
+      box-shadow: 0 2px 12px #e3e8f044;
+      min-height: 120px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    @media (max-width: 700px) {
+      .admin-orders-box { padding: 18px 4vw; border-radius: 14px; }
+      .admin-header { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (localStorage.getItem('adminLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+    // Example: Load orders from localStorage (replace with your logic)
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+  </script>
+  <div class="admin-orders-box">
+    <div class="admin-header">
+      <img src="img/Contact/ctrlzone title.png" alt="CTRLZone" class="admin-logo">
+      <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+    <h2>Received Orders & Payment Information</h2>
+    <div class="orders-list" id="ordersDisplay"></div>
+  </div>
+  <script>
+    function logout() {
+      localStorage.removeItem('adminLoggedIn');
+      window.location.href = 'login.html';
+    }
+    document.getElementById('ordersDisplay').textContent = orders.length ? JSON.stringify(orders, null, 2) : 'No orders received yet.';
+  </script>
+</body>
+</html>
