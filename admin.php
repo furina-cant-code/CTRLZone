@@ -10,17 +10,28 @@ if (isset($_POST['logout'])) {
     exit;
 }
 
-// Simple login protection (optional, remove if not needed)
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header('Location: admin-login.php');
-    exit;
-}
-
 // Handle incoming payment data (from JS fetch)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rawData = file_get_contents("php://input");
-    file_put_contents('debug.txt', print_r($_SERVER, true) . "\n" . $rawData, FILE_APPEND);
-    echo "DEBUG: " . $rawData;
+    $order = json_decode($rawData, true);
+
+    // Basic validation (optional)
+    if (!$order || !isset($order['name'])) {
+        http_response_code(400);
+        echo "Invalid order data";
+        exit;
+    }
+
+    // Save order to orders.txt
+    file_put_contents('orders.txt', json_encode($order) . "\n", FILE_APPEND);
+
+    echo "Order received";
+    exit;
+}
+
+// Only require admin login for viewing the admin page
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+    header('Location: admin-login.php');
     exit;
 }
 
