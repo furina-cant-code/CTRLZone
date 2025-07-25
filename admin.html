@@ -75,8 +75,6 @@
     if (localStorage.getItem('adminLoggedIn') !== 'true') {
       window.location.href = 'login.html';
     }
-    // Example: Load orders from localStorage (replace with your logic)
-    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
   </script>
   <div class="admin-orders-box">
     <div class="admin-header">
@@ -87,11 +85,51 @@
     <div class="orders-list" id="ordersDisplay"></div>
   </div>
   <script>
+    // Load orders from localStorage
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    
     function logout() {
       localStorage.removeItem('adminLoggedIn');
       window.location.href = 'login.html';
     }
-    document.getElementById('ordersDisplay').textContent = orders.length ? JSON.stringify(orders, null, 2) : 'No orders received yet.';
+    
+    function displayOrders() {
+      const ordersDisplay = document.getElementById('ordersDisplay');
+      if (orders.length === 0) {
+        ordersDisplay.innerHTML = 'No orders received yet.';
+        return;
+      }
+      
+      let html = '';
+      orders.forEach((order, index) => {
+        html += `
+          <div style="background: #fff; border-radius: 12px; padding: 18px; margin-bottom: 18px; border-left: 4px solid #1428a0;">
+            <h3 style="color: #1428a0; margin-top: 0;">Order #${index + 1} - ${order.orderId || 'N/A'}</h3>
+            <p><strong>Date:</strong> ${order.timestamp ? new Date(order.timestamp).toLocaleString() : 'N/A'}</p>
+            <p><strong>Customer:</strong> ${order.name}</p>
+            <p><strong>Phone:</strong> ${order.phone}</p>
+            <p><strong>Address:</strong> ${order.address}</p>
+            <p><strong>Card:</strong> **** **** **** ${order.card.slice(-4)}</p>
+            <p><strong>Expiry:</strong> ${order.month}/${order.year}</p>
+            <h4>Items Ordered:</h4>
+            <ul>
+              ${order.cart.map(item => `<li>${item.name} (${item.size}) - Quantity: ${item.qty}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+      });
+      ordersDisplay.innerHTML = html;
+    }
+    
+    displayOrders();
+    
+    // Auto-refresh orders every 30 seconds
+    setInterval(() => {
+      const updatedOrders = JSON.parse(localStorage.getItem('orders') || '[]');
+      if (updatedOrders.length !== orders.length) {
+        location.reload();
+      }
+    }, 30000);
   </script>
 </body>
 </html>

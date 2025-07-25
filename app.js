@@ -2,7 +2,7 @@ const products = [
   {
     name: "S25 Ultra",
     desc: "Samsung's premium smartphone that offers cutting-edge technology and features.",
-    prices: { "256 GB": 5299.99, "512 GB": 5999.99, "1 TB": 6999.99 },
+    prices: { "256 GB": 5299.99, "512 GB": 5799.99, "1 TB": 6299.99 },
     colors: [
       { code: "#e3e8f0", img: "img/Product/1.png" },
       { code: "#222", img: "img/Product/2.png" }
@@ -11,7 +11,7 @@ const products = [
   {
     name: "S24 Ultra",
     desc: "The previous flagship with outstanding camera and performance.",
-    prices: { "256 GB": 5999.99, "512 GB": 6599.99, "1 TB": 7599.99 },
+    prices: { "256 GB": 4899.99, "512 GB": 5399.99, "1 TB": 5899.99 },
     colors: [
       { code: "#a3b8e3", img: "img/Product/9.png" },
       { code: "#222", img: "img/Product/10.png" }
@@ -20,7 +20,7 @@ const products = [
   {
     name: "Z Flip 7",
     desc: "The latest foldable with a stylish design and powerful specs.",
-    prices: { "256 GB": 4299.99, "512 GB": 4799.99, "1 TB": 5799.99 },
+    prices: { "256 GB": 3999.99, "512 GB": 4499.99 },
     colors: [
       { code: "#f7e1da", img: "img/Product/5.png" },
       { code: "#222", img: "img/Product/6.png" }
@@ -29,7 +29,7 @@ const products = [
   {
     name: "Z Fold 7",
     desc: "A foldable phone for productivity and entertainment.",
-    prices: { "256 GB": 6999.99, "512 GB": 7599.99, "1 TB": 8599.99 },
+    prices: { "256 GB": 6999.99, "512 GB": 7499.99, "1 TB": 7999.99 },
     colors: [
       { code: "#d1e7dd", img: "img/Product/3.png" },
       { code: "#222", img: "img/Product/4.png" }
@@ -38,7 +38,7 @@ const products = [
   {
     name: "A16 5G",
     desc: "Affordable 5G phone with great battery life.",
-    prices: { "256 GB": 699.99, "512 GB": 759.99 },
+    prices: { "128 GB": 899.99, "256 GB": 1099.99 },
     colors: [
       { code: "#cfe2f3", img: "img/Product/7.png" },
       { code: "#222", img: "img/Product/8.png" }
@@ -60,7 +60,7 @@ const cartItems = document.getElementById('cartItems');
 const cartCount = document.getElementById('cartCount');
 
 let currentProduct = 0;
-let selectedSize = "256 GB";
+let selectedSize = null;
 let cart = [];
 
 // Add a subtitle/description for each phone
@@ -103,9 +103,28 @@ function renderProduct(idx) {
   productImg.src = prod.colors[0].img;
   productTitle.textContent = prod.name;
   productDesc.textContent = prod.desc;
-  selectedSize = "256 GB";
+  
+  // Set default size to first available size
+  const availableSizes = Object.keys(prod.prices);
+  selectedSize = availableSizes[0];
+  
   sizeButtons.forEach(b => b.classList.remove('selected'));
-  sizeButtons[0].classList.add('selected');
+  
+  // Update size buttons based on available sizes
+  sizeButtons.forEach((btn, btnIdx) => {
+    const btnSize = btn.textContent.trim();
+    if (availableSizes.includes(btnSize)) {
+      btn.style.display = "";
+      btn.disabled = false;
+      if (btnSize === selectedSize) {
+        btn.classList.add('selected');
+      }
+    } else {
+      btn.style.display = "none";
+      btn.disabled = true;
+    }
+  });
+  
   productPrice.textContent = "RM" + prod.prices[selectedSize].toLocaleString(undefined, {minimumFractionDigits: 2});
 
   // Render color buttons
@@ -123,24 +142,12 @@ function renderProduct(idx) {
     };
     colorsContainer.appendChild(colorBtn);
   });
-
-  // Hide 1TB button for A16 5G, show for others
-  if (prod.name === "A16 5G") {
-    sizeButtons[2].style.display = "none";
-    if (selectedSize === "1 TB") {
-      selectedSize = "256 GB";
-      sizeButtons.forEach(b => b.classList.remove('selected'));
-      sizeButtons[0].classList.add('selected');
-      productPrice.textContent = "RM" + prod.prices[selectedSize].toLocaleString(undefined, {minimumFractionDigits: 2});
-    }
-  } else {
-    sizeButtons[2].style.display = "";
-  }
 }
 
 // Size button logic
 sizeButtons.forEach(btn => {
   btn.onclick = function() {
+    if (btn.disabled) return;
     sizeButtons.forEach(b => b.classList.remove('selected'));
     btn.classList.add('selected');
     selectedSize = btn.textContent.trim();
@@ -180,6 +187,12 @@ function closeCart() {
 
 addToCartBtn.onclick = function() {
   const qty = parseInt(document.getElementById('productQty').value, 10);
+  
+  if (!selectedSize) {
+    alert('Please select a size first!');
+    return;
+  }
+  
   // Check if product with same name and size already exists in cart
   const existingIdx = cart.findIndex(item => item.name === products[currentProduct].name && item.size === selectedSize);
   if (existingIdx !== -1) {
@@ -254,6 +267,11 @@ function toggleFaq(btn) {
 
 // Add to app.js
 function openPaymentModal() {
+  if (cart.length === 0) {
+    alert('Your cart is empty!');
+    return;
+  }
+  
   document.getElementById('cartModal').style.display = 'none';
   document.getElementById('paymentModal').style.display = 'flex';
   document.getElementById('paymentBlurBg').classList.add('active');
@@ -264,7 +282,7 @@ function openPaymentModal() {
   let total = 0;
   let html = '<ul>';
   cart.forEach(item => {
-    const price = getProductPrice(item.name, item.size); // Implement this function
+    const price = getProductPrice(item.name, item.size);
     const itemTotal = price * item.qty;
     total += itemTotal;
     html += `<li>
@@ -292,6 +310,24 @@ function submitPayment() {
   const year = document.getElementById('payYear').value;
   const cvv = document.getElementById('payCVV').value;
 
+  // Basic validation
+  if (!name || !phone || !address || !card || !month || !year || !cvv) {
+    alert('Please fill in all required fields!');
+    return;
+  }
+
+  // Validate card number format (basic check)
+  if (card.replace(/\s/g, '').length < 13) {
+    alert('Please enter a valid card number!');
+    return;
+  }
+
+  // Validate CVV
+  if (cvv.length < 3) {
+    alert('Please enter a valid CVV!');
+    return;
+  }
+
   // Prepare cart summary
   let cartSummary = [];
   cart.forEach(item => {
@@ -314,31 +350,57 @@ function submitPayment() {
     cart: cartSummary
   };
 
-  // Send to admin.php via POST (AJAX)
-  fetch('admin.php', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(paymentData)
-  })
-  .then(response => response.ok ? response.text() : Promise.reject('Payment failed'))
-  .then(() => {
-    alert('Payment successful!');
-    closePaymentModal();
-  })
-  .catch(() => {
-    alert('Payment failed. Please try again.');
+  // Store order data locally (since we're using static files)
+  const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+  orders.push({
+    ...paymentData,
+    timestamp: new Date().toISOString(),
+    orderId: 'ORD-' + Date.now()
   });
+  localStorage.setItem('orders', JSON.stringify(orders));
+
+  // Clear cart and show success
+  cart = [];
+  updateCartDisplay();
+  closePaymentModal();
+  alert('Order placed successfully! Your order ID is: ORD-' + Date.now());
+  
+  // Reset form
+  document.getElementById('paymentForm').reset();
 }
 
-// Example price lookup (replace with your actual logic)
+// Fixed price lookup function
 function getProductPrice(name, size) {
-  const prices = {
-    'S25 Ultra': { '256 GB': 5299.99, '512 GB': 5799.99, '1 TB': 6299.99 },
-    'S24 Ultra': { '256 GB': 4899.99, '512 GB': 5399.99, '1 TB': 5899.99 },
-    'Z Flip 7': { '256 GB': 3999.99, '512 GB': 4499.99 },
-    'Z Fold 7': { '256 GB': 6999.99, '512 GB': 7499.99, '1 TB': 7999.99 },
-    'A16 5G': { '128 GB': 899.99, '256 GB': 1099.99 }
-  };
-  return prices[name] && prices[name][size] ? prices[name][size] : 0;
+  const product = products.find(p => p.name === name);
+  return product && product.prices[size] ? product.prices[size] : 0;
 }
 
+// Format card number input
+document.addEventListener('DOMContentLoaded', function() {
+  const cardInput = document.getElementById('payCard');
+  if (cardInput) {
+    cardInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+      let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+      if (formattedValue !== e.target.value) {
+        e.target.value = formattedValue;
+      }
+    });
+  }
+
+  // CVV input validation
+  const cvvInput = document.getElementById('payCVV');
+  if (cvvInput) {
+    cvvInput.addEventListener('input', function(e) {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+  }
+
+  // Phone input validation
+  const phoneInput = document.getElementById('payPhone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      e.target.value = e.target.value.replace(/[^0-9+\-\s]/g, '');
+    });
+  }
+});
