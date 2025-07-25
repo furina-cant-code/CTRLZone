@@ -119,17 +119,13 @@
         <div class="size">256 GB</div>
         <div class="size">512 GB</div>
         <div class="size">1 TB</div>
-        <div class="size">128 GB</div>
       </div>
       <div class="addToCartSection">
         <label for="productQty" class="cartLabel">Quantity:</label>
         <input type="number" id="productQty" class="cartQtyInput" value="1" min="1" max="10">
-        <button class="productButton" id="addToCartBtn">
-          <img src="img/Icon/cart.png" alt="Cart" style="height:20px;vertical-align:middle;margin-right:8px;">
-          ADD TO CART
-        </button>
-        <div id="cartFeedback" class="cartFeedback"></div>
+        <button class="productButton" id="addToCartBtn">ADD TO CART</button>
       </div>
+      <div id="cartFeedback" class="cartFeedback"></div>
     </div>
   </div>
 
@@ -467,6 +463,12 @@
 
 
   <script src="app.js"></script>
+  <!-- Add this script just before </body> to scroll to slider on page load -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.slider').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 
   <!-- Payment Modal (place at end of <body>) -->
 <div class="payment" id="paymentModal">
